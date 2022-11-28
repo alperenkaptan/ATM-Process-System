@@ -56,9 +56,9 @@ namespace WebApplication2.Migrations
                         });
                 });
 
-            modelBuilder.Entity("WebApplication2.Entities.CustomerAccount", b =>
+            modelBuilder.Entity("WebApplication2.Entities.CustomerTransaction", b =>
                 {
-                    b.Property<Guid>("CustomerAccountId")
+                    b.Property<Guid>("CustomerTransactionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -77,32 +77,32 @@ namespace WebApplication2.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionNumber"));
 
-                    b.HasKey("CustomerAccountId");
+                    b.HasKey("CustomerTransactionId");
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("CustomerAccounts");
+                    b.ToTable("CustomerTransaction");
 
                     b.HasData(
                         new
                         {
-                            CustomerAccountId = new Guid("e294e7b7-2a44-4f28-acdf-ff906e39c9ed"),
+                            CustomerTransactionId = new Guid("e3bd21ee-de46-4bf1-ab99-39ca20cea4d8"),
                             CustomerId = 1,
                             Money = 100.0,
-                            TransactionDate = new DateTime(2022, 11, 27, 14, 51, 58, 462, DateTimeKind.Local).AddTicks(6142),
+                            TransactionDate = new DateTime(2022, 11, 28, 17, 15, 20, 585, DateTimeKind.Local).AddTicks(1201),
                             TransactionNumber = 10000
                         },
                         new
                         {
-                            CustomerAccountId = new Guid("70ce9dbc-e6f9-4d2f-a2f7-1051d79f6c5b"),
+                            CustomerTransactionId = new Guid("96dac919-3141-4ca8-afdc-4e33e89f5aec"),
                             CustomerId = 1,
                             Money = -25.0,
-                            TransactionDate = new DateTime(2022, 11, 27, 14, 51, 58, 462, DateTimeKind.Local).AddTicks(6162),
+                            TransactionDate = new DateTime(2022, 11, 28, 17, 15, 20, 585, DateTimeKind.Local).AddTicks(1247),
                             TransactionNumber = 10001
                         });
                 });
 
-            modelBuilder.Entity("WebApplication2.Entities.CustomerAccount", b =>
+            modelBuilder.Entity("WebApplication2.Entities.CustomerTransaction", b =>
                 {
                     b.HasOne("WebApplication2.Entities.Customer", "Customer")
                         .WithMany("CustomerAccounts")

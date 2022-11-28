@@ -1,6 +1,4 @@
-﻿using MailKit.Net.Smtp;
-using MimeKit;
-using System.Linq;
+﻿using MimeKit;
 
 namespace WebApplication2.Models
 {

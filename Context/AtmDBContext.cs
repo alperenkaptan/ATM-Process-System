@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations.Schema;
 using WebApplication2.Entities;
 
 namespace WebApplication2.Context
@@ -11,11 +10,13 @@ namespace WebApplication2.Context
         {
 
         }
-        public DbSet<CustomerAccount> CustomerAccounts { get; set; }
+        public DbSet<CustomerTransaction> CustomerTransaction { get; set; }
         public DbSet<Customer> Customers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomerAccount>().Property(tn => tn.TransactionNumber).ValueGeneratedOnAdd();
+            modelBuilder.Entity<CustomerTransaction>()
+                .Property(tn => tn.TransactionNumber)
+                .ValueGeneratedOnAdd();
 
             #region seedwork
             modelBuilder.Entity<Customer>().HasData(
@@ -27,21 +28,21 @@ namespace WebApplication2.Context
                     CustomerEmail = "alperen9792@gmail.com"
                 }
             );
-            modelBuilder.Entity<CustomerAccount>().HasData(
-                new CustomerAccount
+            modelBuilder.Entity<CustomerTransaction>().HasData(
+                new CustomerTransaction
                 {
                     CustomerId = 1,
-                    CustomerAccountId = Guid.NewGuid(),
+                    CustomerTransactionId = Guid.NewGuid(),
                     Money = 100.00,
                     TransactionDate = DateTime.Now,
                     TransactionNumber = 10000
                 }
             );
-            modelBuilder.Entity<CustomerAccount>().HasData(
-                new CustomerAccount
+            modelBuilder.Entity<CustomerTransaction>().HasData(
+                new CustomerTransaction
                 {
                     CustomerId = 1,
-                    CustomerAccountId = Guid.NewGuid(),
+                    CustomerTransactionId = Guid.NewGuid(),
                     Money = -25.00,
                     TransactionDate = DateTime.Now,
                     TransactionNumber = 10001

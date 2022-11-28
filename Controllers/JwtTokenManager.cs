@@ -3,7 +3,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using WebApplication2.Interfaces;
 using System.Security.Claims;
-using WebApplication2.Repositories;
 
 namespace WebApplication2.Controllers
 {

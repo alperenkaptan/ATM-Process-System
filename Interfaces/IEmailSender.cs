@@ -2,7 +2,7 @@
 
 namespace WebApplication2.Interfaces
 {
-    public interface IEmailSenderModel
+    public interface IEmailSender
     {
         void SendEmail(MessageModel message);
     }

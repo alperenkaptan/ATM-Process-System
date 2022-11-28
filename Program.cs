@@ -6,7 +6,6 @@ using WebApplication2.Controllers;
 using WebApplication2.Context;
 using WebApplication2.Interfaces;
 using WebApplication2.Repositories;
-using Microsoft.Extensions.Configuration;
 using WebApplication2.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,7 +36,7 @@ builder.Services.AddAuthentication(authOptions =>
         ValidateAudience = false
     };
 });
-builder.Services.AddTransient<ICustomerAccountRepository, CustomerAccountRepository>();
+builder.Services.AddTransient<ICustomerTransactionRepository, CustomerTransactionRepository>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();
 builder.Services.AddTransient<IJwtTokenManager, JwtTokenManager>();
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
@@ -47,7 +46,7 @@ var emailConfig = builder.Configuration
         .GetSection("EmailConfiguration")
         .Get<EmailConfigurationModel>();
 builder.Services.AddSingleton(emailConfig);
-builder.Services.AddScoped<IEmailSenderModel, EmailSenderModel>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

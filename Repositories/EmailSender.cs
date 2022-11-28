@@ -1,13 +1,14 @@
 ﻿using WebApplication2.Interfaces;
 using MailKit.Net.Smtp;
 using MimeKit;
+using WebApplication2.Models;
 
-namespace WebApplication2.Models
+namespace WebApplication2.Repositories
 {
-    public class EmailSenderModel : IEmailSenderModel
+    public class EmailSender : IEmailSender
     {
         private readonly EmailConfigurationModel _emailConfig;
-        public EmailSenderModel(EmailConfigurationModel emailConfig)
+        public EmailSender(EmailConfigurationModel emailConfig)
         {
             _emailConfig = emailConfig;
         }

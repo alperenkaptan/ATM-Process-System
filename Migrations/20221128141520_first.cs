@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebApplication2.Migrations
 {
     /// <inheritdoc />
-    public partial class _1 : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -29,10 +29,10 @@ namespace WebApplication2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CustomerAccounts",
+                name: "CustomerTransaction",
                 columns: table => new
                 {
-                    CustomerAccountId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CustomerTransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Money = table.Column<double>(type: "float", nullable: false),
                     TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TransactionNumber = table.Column<int>(type: "int", nullable: false)
@@ -41,9 +41,9 @@ namespace WebApplication2.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CustomerAccounts", x => x.CustomerAccountId);
+                    table.PrimaryKey("PK_CustomerTransaction", x => x.CustomerTransactionId);
                     table.ForeignKey(
-                        name: "FK_CustomerAccounts_Customers_CustomerId",
+                        name: "FK_CustomerTransaction_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
                         principalColumn: "CustomerId",
@@ -56,17 +56,17 @@ namespace WebApplication2.Migrations
                 values: new object[] { 1, "alperen9792@gmail.com", "testUser", "testPassword" });
 
             migrationBuilder.InsertData(
-                table: "CustomerAccounts",
-                columns: new[] { "CustomerAccountId", "CustomerId", "Money", "TransactionDate", "TransactionNumber" },
+                table: "CustomerTransaction",
+                columns: new[] { "CustomerTransactionId", "CustomerId", "Money", "TransactionDate", "TransactionNumber" },
                 values: new object[,]
                 {
-                    { new Guid("70ce9dbc-e6f9-4d2f-a2f7-1051d79f6c5b"), 1, -25.0, new DateTime(2022, 11, 27, 14, 51, 58, 462, DateTimeKind.Local).AddTicks(6162), 10001 },
-                    { new Guid("e294e7b7-2a44-4f28-acdf-ff906e39c9ed"), 1, 100.0, new DateTime(2022, 11, 27, 14, 51, 58, 462, DateTimeKind.Local).AddTicks(6142), 10000 }
+                    { new Guid("96dac919-3141-4ca8-afdc-4e33e89f5aec"), 1, -25.0, new DateTime(2022, 11, 28, 17, 15, 20, 585, DateTimeKind.Local).AddTicks(1247), 10001 },
+                    { new Guid("e3bd21ee-de46-4bf1-ab99-39ca20cea4d8"), 1, 100.0, new DateTime(2022, 11, 28, 17, 15, 20, 585, DateTimeKind.Local).AddTicks(1201), 10000 }
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CustomerAccounts_CustomerId",
-                table: "CustomerAccounts",
+                name: "IX_CustomerTransaction_CustomerId",
+                table: "CustomerTransaction",
                 column: "CustomerId");
         }
 
@@ -74,7 +74,7 @@ namespace WebApplication2.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CustomerAccounts");
+                name: "CustomerTransaction");
 
             migrationBuilder.DropTable(
                 name: "Customers");

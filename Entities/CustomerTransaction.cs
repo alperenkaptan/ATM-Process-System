@@ -1,11 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
 namespace WebApplication2.Entities
 {
-    public class CustomerAccount
+    public class CustomerTransaction
     {
-        public Guid CustomerAccountId { get; set; }
+        public Guid CustomerTransactionId{ get; set; }
         public double Money { get; set; }
         public DateTime TransactionDate { get; set; }
         public int TransactionNumber { get; set; }

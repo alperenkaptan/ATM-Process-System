@@ -1,4 +1,5 @@
-﻿namespace WebApplication2.Entities
+﻿
+namespace WebApplication2.Entities
 {
     public class Customer
     {
@@ -6,7 +7,7 @@
         public string CustomerName { get; set; }
         public string CustomerPassword { get; set; }
         public string CustomerEmail { get; set; }
-        public ICollection<CustomerAccount> CustomerAccounts { get; set; }
+        public ICollection<CustomerTransaction> CustomerAccounts { get; set; }
 
     }
 }
