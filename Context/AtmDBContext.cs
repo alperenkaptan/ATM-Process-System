@@ -25,7 +25,7 @@ namespace WebApplication2.Context
                     CustomerId = 1,
                     CustomerName = "testUser",
                     CustomerPassword = "testPassword",
-                    CustomerEmail = "alperen9792@gmail.com"
+                    CustomerEmail = "BURAYAMAILGELECEK@gmail.com"
                 }
             );
             modelBuilder.Entity<CustomerTransaction>().HasData(
